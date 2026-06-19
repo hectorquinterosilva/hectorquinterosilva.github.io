@@ -1,0 +1,74 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const foundation = [
+  "AI API Gateway",
+  "Authentication Service",
+  "Vector Search API",
+  "Embedding Service",
+  "Prompt Management API",
+  "Document Ingestion Service",
+  "RAG Starter Platform",
+  "Redis Caching Layer",
+  "PostgreSQL AI Backend",
+  "Dockerized AI Stack"
+];
+
+const intermediate = [
+  "Multi-Tenant SaaS Backend",
+  "LLM Usage Tracking",
+  "Model Registry Service",
+  "Semantic Search Engine",
+  "AI Job Queue System",
+  "Rate Limiting Service",
+  "AI Monitoring Dashboard",
+  "RAG Evaluation System",
+  "Agent Backend Platform",
+  "AI Workflow Engine"
+];
+
+const advanced = [
+  "Kubernetes AI Platform",
+  "Distributed Vector Database",
+  "Multi-LLM Router",
+  "AI Infrastructure Monitoring",
+  "Enterprise RAG Platform",
+  "Prompt Versioning System",
+  "AI Cost Analytics Platform",
+  "AI Observability Stack",
+  "Production AI SaaS",
+  "Complete AI Infrastructure Platform"
+];
+---
+
+<MainLayout
+  title="Projects | Héctor Andrés Quintero Silva"
+>
+
+<h1>Projects</h1>
+
+<h2>Foundation</h2>
+
+<ul>
+  {foundation.map(project => (
+    <li>{project}</li>
+  ))}
+</ul>
+
+<h2>Intermediate</h2>
+
+<ul>
+  {intermediate.map(project => (
+    <li>{project}</li>
+  ))}
+</ul>
+
+<h2>Advanced</h2>
+
+<ul>
+  {advanced.map(project => (
+    <li>{project}</li>
+  ))}
+</ul>
+
+</MainLayout>
