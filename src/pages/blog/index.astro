@@ -1,0 +1,40 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const posts = [
+  "Building an LLM Gateway API with FastAPI",
+  "Designing Production-Ready RAG Pipelines",
+  "Prompt Management Platforms for Enterprise AI",
+  "Semantic Search with PostgreSQL and pgvector",
+  "Embedding Services at Scale",
+  "Redis for High-Performance AI Platforms",
+  "Docker and Kubernetes for AI Applications",
+  "Observability for LLM Platforms",
+  "Building Multi-Tenant AI Platforms",
+  "AI Platform Engineering Roadmap"
+];
+---
+
+<MainLayout
+  title="Blog | Héctor Andrés Quintero Silva"
+>
+
+<h1>Engineering Blog</h1>
+
+<p class="about-lead">
+  Articles, tutorials and engineering notes documenting my journey toward becoming an AI Platform Engineer. I share practical knowledge about backend engineering, LLM platforms, RAG systems, cloud-native architecture and production AI applications.
+</p>
+
+<div class="cert-grid">
+
+  {posts.map((post) => (
+
+    <div class="card">
+      <p>{post}</p>
+    </div>
+
+  ))}
+
+</div>
+
+</MainLayout>

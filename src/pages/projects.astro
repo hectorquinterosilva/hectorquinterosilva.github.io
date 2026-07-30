@@ -1,74 +1,160 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { projects } from "../data/projects";
 
-const foundation = [
-  "AI API Gateway",
-  "Authentication Service",
-  "Vector Search API",
-  "Embedding Service",
-  "Prompt Management API",
-  "Document Ingestion Service",
-  "RAG Starter Platform",
-  "Redis Caching Layer",
-  "PostgreSQL AI Backend",
-  "Dockerized AI Stack"
-];
+const levels = [...new Set(projects.map(project => project.level))].sort(
+  (a, b) => a - b
+);
 
-const intermediate = [
-  "Multi-Tenant SaaS Backend",
-  "LLM Usage Tracking",
-  "Model Registry Service",
-  "Semantic Search Engine",
-  "AI Job Queue System",
-  "Rate Limiting Service",
-  "AI Monitoring Dashboard",
-  "RAG Evaluation System",
-  "Agent Backend Platform",
-  "AI Workflow Engine"
-];
+const completedProjects = projects.filter(
+  project => project.status === "Completed"
+).length;
 
-const advanced = [
-  "Kubernetes AI Platform",
-  "Distributed Vector Database",
-  "Multi-LLM Router",
-  "AI Infrastructure Monitoring",
-  "Enterprise RAG Platform",
-  "Prompt Versioning System",
-  "AI Cost Analytics Platform",
-  "AI Observability Stack",
-  "Production AI SaaS",
-  "Complete AI Infrastructure Platform"
-];
+const inProgressProjects = projects.filter(
+  project => project.status === "In Progress"
+).length;
+
+const plannedProjects = projects.filter(
+  project => project.status === "Planned"
+).length;
 ---
 
 <MainLayout
   title="Projects | Héctor Andrés Quintero Silva"
+  description="AI Platform Engineering Portfolio"
 >
 
-<h1>Projects</h1>
+<section class="hero">
 
-<h2>Foundation</h2>
+  <p class="eyebrow">
+    Engineering Portfolio
+  </p>
 
-<ul>
-  {foundation.map(project => (
-    <li>{project}</li>
-  ))}
-</ul>
+  <h1>
+    Projects
+  </h1>
 
-<h2>Intermediate</h2>
+  <p class="description">
+    This roadmap documents my journey as an AI Platform Engineer.
+    Every project is production-oriented and designed to strengthen
+    backend engineering, cloud-native architectures, AI infrastructure,
+    MLOps, Data Engineering and Machine Learning.
+  </p>
 
-<ul>
-  {intermediate.map(project => (
-    <li>{project}</li>
-  ))}
-</ul>
+</section>
 
-<h2>Advanced</h2>
+<section>
 
-<ul>
-  {advanced.map(project => (
-    <li>{project}</li>
-  ))}
-</ul>
+  <div class="stats-grid">
+
+    <div class="stat-card">
+
+      <h3>{projects.length}</h3>
+
+      <p>Total Projects</p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h3>{completedProjects}</h3>
+
+      <p>Completed</p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h3>{inProgressProjects}</h3>
+
+      <p>In Progress</p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h3>{plannedProjects}</h3>
+
+      <p>Planned</p>
+
+    </div>
+
+  </div>
+
+</section>
+
+{
+levels.map(level => (
+
+<section>
+
+<h2>
+
+Level {level}
+
+</h2>
+
+<div class="projects-grid">
+
+{
+
+projects
+
+.filter(project => project.level === level)
+
+.map(project => (
+
+<div class="card">
+
+<h3>
+
+{project.title}
+
+</h3>
+
+<p class="project-status">
+
+{project.status}
+
+</p>
+
+<p>
+
+{project.description}
+
+</p>
+
+<br>
+
+<div class="tech-stack">
+
+{
+
+project.technologies.map(tech => (
+
+<span class="tech-pill">
+
+{tech}
+
+</span>
+
+))
+
+}
+
+</div>
+
+</div>
+
+))
+
+}
+
+</div>
+
+</section>
+
+))
+}
 
 </MainLayout>

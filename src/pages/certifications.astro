@@ -1,0 +1,97 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const certifications = [
+  {
+    category: "Programming",
+    items: [
+      "Python Programming Technician — Universidad San Jorge",
+      "Software Analysis and Development Technologist — SENA"
+    ]
+  },
+  {
+    category: "Cloud & DevOps",
+    items: [
+      "AWS Certified Cloud Practitioner (Planned)",
+      "AWS Solutions Architect Associate (Planned)",
+      "AWS Developer Associate (Planned)",
+      "Terraform Associate (Planned)",
+      "Certified Kubernetes Administrator (CKA) (Planned)",
+      "Docker Certified Associate (Planned)"
+    ]
+  },
+  {
+    category: "AI Platform Engineering",
+    items: [
+      "LangChain for LLM Application Development",
+      "LlamaIndex Certification",
+      "Hugging Face AI Courses",
+      "OpenAI API Developer",
+      "Vector Databases Fundamentals",
+      "Redis for AI Applications"
+    ]
+  },
+  {
+    category: "Observability & Platform",
+    items: [
+      "Prometheus Fundamentals",
+      "Grafana Fundamentals",
+      "OpenTelemetry Fundamentals",
+      "GitHub Actions CI/CD",
+      "Linux System Administration"
+    ]
+  }
+];
+---
+
+<MainLayout
+  title="Certifications | Héctor Andrés Quintero Silva"
+>
+
+<h1>Certifications</h1>
+
+<p class="about-lead">
+This page tracks the certifications supporting my roadmap toward becoming an
+AI Platform Engineer focused on cloud-native AI infrastructure, backend
+engineering and production AI systems.
+</p>
+
+{
+certifications.map((section) => (
+
+<section>
+
+<h2>{section.category}</h2>
+
+<div class="cert-grid">
+
+{
+section.items.map((cert) => (
+
+<div class="card">
+<p>{cert}</p>
+</div>
+
+))
+}
+
+</div>
+
+</section>
+
+))
+}
+
+<section>
+
+<h2>Certification Roadmap</h2>
+
+<p>
+My objective is to progressively validate the skills acquired throughout the
+30-project roadmap with industry-recognized certifications in cloud,
+Kubernetes, DevOps and AI Platform Engineering.
+</p>
+
+</section>
+
+</MainLayout>

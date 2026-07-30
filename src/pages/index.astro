@@ -1,34 +1,36 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+
+import { profile } from "../data/profile";
+import { techStack } from "../data/stack";
+import { projects } from "../data/projects";
 ---
 
 <MainLayout
-  title="Héctor Andrés Quintero Silva | AI Infrastructure Engineer"
-  description="Portfolio of Héctor Andrés Quintero Silva, AI Infrastructure Engineer."
+  title={`${profile.name} | ${profile.title}`}
+  description={`Portfolio of ${profile.name}, ${profile.title}.`}
 >
 
 <section class="hero">
 
   <p class="eyebrow">
-    AI Infrastructure Engineer
+    {profile.title}
   </p>
 
   <h1>
-    Héctor Andrés Quintero Silva
+    {profile.name}
   </h1>
 
   <h2>
-    Building the backend infrastructure that powers intelligent applications.
+    {profile.subtitle}
   </h2>
 
   <p class="description">
-    I design and develop scalable AI backend systems using Python,
-    FastAPI, PostgreSQL, Redis, Docker, Kubernetes and cloud
-    technologies, with a focus on LLMs, RAG architectures and
-    production-grade AI platforms.
+    {profile.summary}
   </p>
 
   <div class="hero-buttons">
+
     <a href="/projects" class="primary-button">
       View Projects
     </a>
@@ -36,6 +38,121 @@ import MainLayout from "../layouts/MainLayout.astro";
     <a href="/contact" class="secondary-button">
       Contact
     </a>
+
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Core Expertise</h2>
+
+  <div class="specializations-grid">
+
+    <div class="card">
+
+      <h3>Backend Engineering</h3>
+
+      <p>
+        REST APIs, authentication, caching, databases, asynchronous processing
+        and scalable backend services using FastAPI and PostgreSQL.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>AI Platform Engineering</h3>
+
+      <p>
+        LLM Gateway APIs, Prompt Management, RAG pipelines, embeddings,
+        semantic search, model orchestration and enterprise AI platforms.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Cloud-Native AI Systems</h3>
+
+      <p>
+        Docker, Kubernetes, Redis, cloud deployment, observability, CI/CD,
+        distributed services and production AI infrastructure.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Technology Stack</h2>
+
+  <div class="tech-stack">
+
+    {techStack.map((tech) => (
+      <span class="tech-pill">
+        {tech.name}
+      </span>
+    ))}
+
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Featured Projects</h2>
+
+  <div class="projects-grid">
+
+    {projects
+      .filter((project) => project.featured)
+      .map((project) => (
+
+      <div class="card">
+
+        <h3>{project.title}</h3>
+
+        <p class="project-status">
+          {project.status}
+        </p>
+
+        <p>
+          {project.description}
+        </p>
+
+      </div>
+
+    ))}
+
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Engineering Roadmap</h2>
+
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <h3>30</h3>
+      <p>Production Projects</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>7</h3>
+      <p>Engineering Levels</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>AI</h3>
+      <p>Platform Engineering Focus</p>
+    </div>
+
   </div>
 
 </section>
