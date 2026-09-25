@@ -1,9 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-
 import { profile } from "../data/profile";
 import { techStack } from "../data/stack";
-import { experience } from "../data/experience";
 ---
 
 <MainLayout
@@ -11,136 +9,171 @@ import { experience } from "../data/experience";
   description={`About ${profile.name}`}
 >
 
-<section class="hero">
+  <section class="hero">
 
-<p class="eyebrow">
+    <p class="eyebrow">
+      About Me
+    </p>
 
-About Me
+    <h1>
+      {profile.name}
+    </h1>
 
-</p>
+    <h2>
+      {profile.title}
+    </h2>
 
-<h1>
+    <p class="description">
+      {profile.summary}
+    </p>
 
-{profile.name}
+  </section>
 
-</h1>
+  <section>
 
-<h2>
+    <div class="section-header">
 
-{profile.title}
+      <p class="eyebrow">
+        ENGINEERING PROFILE
+      </p>
 
-</h2>
+      <h2>
+        What I Build
+      </h2>
 
-<p class="description">
+      <p>
+        Production-oriented systems designed around real engineering
+        problems rather than isolated exercises.
+      </p>
 
-{profile.summary}
+    </div>
 
-</p>
+    <div class="specializations-grid">
 
-</section>
+      <article class="card">
 
-<section>
+        <h3>
+          Backend Systems
+        </h3>
 
-<h2>
+        <p>
+          Scalable APIs and backend services built with Python,
+          FastAPI, PostgreSQL and Redis. Focused on clean
+          architecture, observability and production reliability.
+        </p>
 
-Professional Experience
+        <div class="tech-stack">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">FastAPI</span>
+          <span class="tech-pill">PostgreSQL</span>
+          <span class="tech-pill">Redis</span>
+        </div>
 
-</h2>
+      </article>
 
-<div class="projects-grid">
+      <article class="card">
 
-{
+        <h3>
+          AI Platform Engineering
+        </h3>
 
-experience.map(job=>(
+        <p>
+          Infrastructure and services that support AI applications
+          in production: LLM gateways, RAG systems, embedding
+          services and agent platforms.
+        </p>
 
-<div class="card">
+        <div class="tech-stack">
+          <span class="tech-pill">LLMs</span>
+          <span class="tech-pill">RAG</span>
+          <span class="tech-pill">Embeddings</span>
+          <span class="tech-pill">Agents</span>
+        </div>
 
-<h3>
+      </article>
 
-{job.position}
+      <article class="card">
 
-</h3>
+        <h3>
+          Cloud & Infrastructure
+        </h3>
 
-<h4>
+        <p>
+          Containerized, reproducible environments designed for
+          deployment across local, staging and production
+          configurations.
+        </p>
 
-{job.company}
+        <div class="tech-stack">
+          <span class="tech-pill">Docker</span>
+          <span class="tech-pill">Kubernetes</span>
+          <span class="tech-pill">AWS</span>
+          <span class="tech-pill">Linux</span>
+        </div>
 
-</h4>
+      </article>
 
-<p>
+    </div>
 
-<strong>{job.period}</strong>
+  </section>
 
-<br>
+  <section>
 
-{job.location}
+    <h2>
+      Technology Stack
+    </h2>
 
-</p>
+    <div class="tech-stack">
+      {
+        techStack.map((stack) => (
+          <span class="tech-pill">
+            {stack.name}
+          </span>
+        ))
+      }
+    </div>
 
-<br>
+  </section>
 
-<p>
+  <section>
 
-{job.description}
+    <div class="card">
 
-</p>
+      <p class="eyebrow">
+        HOW I WORK
+      </p>
 
-<br>
+      <h2>
+        Built through products, not tutorials.
+      </h2>
 
-<div class="tech-stack">
+      <p class="description">
+        Rather than accumulating isolated exercises, every concept
+        is applied to a real engineering product. The portfolio and
+        roadmap are the result: a growing ecosystem of interconnected
+        systems designed with production practices from day one.
+      </p>
 
-{
+      <div class="hero-buttons">
 
-job.technologies.map(tech=>(
+        <a
+          class="primary-button"
+          href="/portfolio"
+        >
+          Explore the Portfolio
+        </a>
 
-<span class="tech-pill">
+        <a
+          class="secondary-button"
+          href="/roadmap"
+        >
+          View the Roadmap
+        </a>
 
-{tech}
+      </div>
 
-</span>
+    </div>
 
-))
-
-}
-
-</div>
-
-</div>
-
-))
-
-}
-
-</div>
-
-</section>
-
-<section>
-
-<h2>
-
-Technology Stack
-
-</h2>
-
-<div class="tech-stack">
-
-{
-
-techStack.map(stack=>(
-
-<span class="tech-pill">
-
-{stack.name}
-
-</span>
-
-))
-
-}
-
-</div>
-
-</section>
+  </section>
 
 </MainLayout>
