@@ -1,0 +1,237 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { roadmapProducts } from "../data/roadmap/index";
+
+const modules = [
+  ...new Set(
+    roadmapProducts.map((product) => product.module)
+  ),
+];
+
+const totalProducts = roadmapProducts.length;
+
+const inProgress = roadmapProducts.filter(
+  (product) => product.status === "In Progress"
+).length;
+
+const completed = roadmapProducts.filter(
+  (product) => product.status === "Completed"
+).length;
+
+const planned = roadmapProducts.filter(
+  (product) => product.status === "Planned"
+).length;
+---
+
+<MainLayout
+  title="Engineering Roadmap | Héctor Andrés Quintero Silva"
+  description="Long-term AI Platform Engineering curriculum."
+>
+
+  <section>
+
+    <div class="section-header">
+
+      <span class="eyebrow">
+        ENGINEERING ROADMAP
+      </span>
+
+      <h1>
+        Engineering Roadmap
+      </h1>
+
+      <p class="description">
+        A long-term engineering curriculum built around
+        production-oriented software products, reusable
+        infrastructure and progressively more complex
+        AI Platform Engineering systems.
+      </p>
+
+    </div>
+
+
+    <!-- ==================================================
+         ROADMAP METRICS
+    =================================================== -->
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <h3>{totalProducts}</h3>
+        <p>Products Registered</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>{modules.length}</h3>
+        <p>Engineering Domains</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>{inProgress}</h3>
+        <p>In Progress</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>{completed}</h3>
+        <p>Completed</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ====================================================
+       ROADMAP
+  ===================================================== -->
+
+  <section>
+
+    <div class="section-header">
+
+      <span class="eyebrow">
+        ENGINEERING CURRICULUM
+      </span>
+
+      <h2>
+        From Foundations to AI Platforms
+      </h2>
+
+      <p>
+        Each domain introduces progressively more advanced
+        engineering challenges. Products are designed to
+        build upon the infrastructure and knowledge developed
+        in previous stages.
+      </p>
+
+    </div>
+
+
+    {
+      modules.map((module) => {
+
+        const moduleProducts =
+          roadmapProducts.filter(
+            (product) => product.module === module
+          );
+
+        return (
+
+          <div class="roadmap-module">
+
+            <div class="section-header">
+
+              <h2>
+                {module}
+              </h2>
+
+              <p>
+                {moduleProducts.length} product
+                {moduleProducts.length !== 1 ? "s" : ""}
+                in this engineering domain.
+              </p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+              {
+                moduleProducts.map((product) => (
+
+                  <article class="card">
+
+                    <span class="project-status">
+                      {product.status}
+                    </span>
+
+                    <h3>
+                      {product.title}
+                    </h3>
+
+                    <p>
+                      {product.summary}
+                    </p>
+
+                    <div class="tech-stack">
+
+                      {
+                        product.technologies.map(
+                          (tech) => (
+
+                            <span class="tech-pill">
+                              {tech}
+                            </span>
+
+                          )
+                        )
+                      }
+
+                    </div>
+
+                  </article>
+
+                ))
+              }
+
+            </div>
+
+          </div>
+
+        );
+
+      })
+    }
+
+  </section>
+
+
+  <!-- ====================================================
+       ROADMAP VISION
+  ===================================================== -->
+
+  <section>
+
+    <div class="card">
+
+      <span class="eyebrow">
+        ENGINEERING VISION
+      </span>
+
+      <h2>
+        More Than a Curriculum
+      </h2>
+
+      <p class="description">
+
+        The roadmap is designed as an interconnected
+        engineering ecosystem rather than a collection of
+        isolated tutorials.
+
+        Every product contributes reusable knowledge,
+        architectural patterns, infrastructure and
+        engineering experience to the products that follow.
+
+      </p>
+
+      <div class="tech-stack">
+
+        <span class="tech-pill">
+          {planned} Planned
+        </span>
+
+        <span class="tech-pill">
+          {inProgress} In Progress
+        </span>
+
+        <span class="tech-pill">
+          {completed} Completed
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</MainLayout>

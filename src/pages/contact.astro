@@ -1,87 +1,142 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { profile } from "../data/profile";
 ---
 
 <MainLayout
-  title="Contact | Héctor Andrés Quintero Silva"
-  description="Contact Héctor Andrés Quintero Silva, AI Platform Engineer."
+  title={`Contact | ${profile.name}`}
+  description={`Contact ${profile.name}`}
 >
 
-<section>
+  <section class="contact-page">
 
-  <h1>Contact</h1>
+    <div class="section-header">
 
-  <p class="about-lead">
-    I'm always interested in discussing AI Platform Engineering,
-    backend architecture, cloud-native infrastructure, LLM platforms,
-    RAG systems and open-source collaborations.
-  </p>
-
-</section>
-
-<section>
-
-  <div class="contact-grid">
-
-    <div class="card">
-
-      <h3>GitHub</h3>
-
-      <p>
-        Explore my AI Platform Engineering portfolio, production-oriented
-        projects and technical roadmap.
+      <p class="eyebrow">
+        Contact
       </p>
 
-      <p>
-        <a
-          href="https://github.com/hectorquinterosilva"
-          target="_blank"
-        >
-          github.com/hectorquinterosilva
-        </a>
+      <h1>
+        Let's Build Something
+        <br />
+        Great
+      </h1>
+
+      <p class="description">
+        I'm interested in opportunities related to Backend Engineering,
+        AI Platform Engineering, Cloud Infrastructure, Machine Learning
+        Infrastructure and distributed systems.
       </p>
 
     </div>
 
-    <div class="card">
+    <div class="contact-grid">
 
-      <h3>LinkedIn</h3>
+      <article class="card">
 
-      <p>
-        Professional profile, engineering experience and ongoing learning
-        journey.
-      </p>
+        <h3>
+          📧 Email
+        </h3>
 
-      <p>
+        <p>
+          Professional inquiries, collaborations and engineering
+          opportunities.
+        </p>
+
+        <a
+          href="mailto:hectorquinterosilva@gmail.com"
+        >
+          hectorquinterosilva@gmail.com
+        </a>
+
+      </article>
+
+      <article class="card">
+
+        <h3>
+          💼 LinkedIn
+        </h3>
+
+        <p>
+          Professional profile, experience and career updates.
+        </p>
+
         <a
           href="https://www.linkedin.com/in/hector-andres-quintero-silva-208430139/"
           target="_blank"
+          rel="noopener noreferrer"
         >
-          LinkedIn Profile
+          linkedin.com/in/hector-andres-quintero-silva-208430139
         </a>
-      </p>
+
+      </article>
+
+      <article class="card">
+
+        <h3>
+          💻 GitHub
+        </h3>
+
+        <p>
+          Source code, portfolio projects and engineering roadmap.
+        </p>
+
+        <a
+          href="https://github.com/hectorquinterosilva"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          github.com/hectorquinterosilva
+        </a>
+
+      </article>
 
     </div>
 
-    <div class="card">
+    <section class="interests-section">
 
-      <h3>Email</h3>
+      <h2>
+        Current Interests
+      </h2>
 
-      <p>
-        Available for technical discussions, collaborations and engineering
-        opportunities.
-      </p>
+      <div class="tech-stack">
 
-      <p>
-        <a href="mailto:neohaq@hotmail.com">
-          neohaq@hotmail.com
-        </a>
-      </p>
+        <span class="tech-pill">
+          AI Platform Engineering
+        </span>
 
-    </div>
+        <span class="tech-pill">
+          Backend Engineering
+        </span>
 
-  </div>
+        <span class="tech-pill">
+          Cloud Computing
+        </span>
 
-</section>
+        <span class="tech-pill">
+          Machine Learning
+        </span>
+
+        <span class="tech-pill">
+          MLOps
+        </span>
+
+        <span class="tech-pill">
+          LLMs
+        </span>
+
+        <span class="tech-pill">
+          RAG
+        </span>
+
+        <span class="tech-pill">
+          Distributed Systems
+        </span>
+
+      </div>
+
+    </section>
+
+  </section>
 
 </MainLayout>

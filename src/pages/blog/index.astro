@@ -1,40 +1,191 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-
-const posts = [
-  "Building an LLM Gateway API with FastAPI",
-  "Designing Production-Ready RAG Pipelines",
-  "Prompt Management Platforms for Enterprise AI",
-  "Semantic Search with PostgreSQL and pgvector",
-  "Embedding Services at Scale",
-  "Redis for High-Performance AI Platforms",
-  "Docker and Kubernetes for AI Applications",
-  "Observability for LLM Platforms",
-  "Building Multi-Tenant AI Platforms",
-  "AI Platform Engineering Roadmap"
-];
 ---
 
 <MainLayout
-  title="Blog | Héctor Andrés Quintero Silva"
+  title="Engineering Journal | Héctor Andrés Quintero Silva"
+  description="Technical articles documenting the design and implementation of enterprise AI systems."
 >
 
-<h1>Engineering Blog</h1>
+<section class="hero">
 
-<p class="about-lead">
-  Articles, tutorials and engineering notes documenting my journey toward becoming an AI Platform Engineer. I share practical knowledge about backend engineering, LLM platforms, RAG systems, cloud-native architecture and production AI applications.
+  <p class="eyebrow">
+
+    Engineering Journal
+
+  </p>
+
+  <h1>
+
+    Building in Public
+
+  </h1>
+
+  <p class="description">
+
+    This journal documents the engineering decisions, architecture,
+    implementation details and lessons learned while building my
+    AI Platform Engineering portfolio.
+
+  </p>
+
+</section>
+
+<section>
+
+<div class="card">
+
+<h2>
+
+Why an Engineering Journal?
+
+</h2>
+
+<p>
+
+Every significant product published in my portfolio will eventually be
+accompanied by a technical article explaining its design decisions,
+architecture, implementation process and trade-offs.
+
+Rather than documenting only the final result, this journal aims to share
+the engineering journey behind each product.
+
 </p>
 
-<div class="cert-grid">
+</div>
 
-  {posts.map((post) => (
+</section>
 
-    <div class="card">
-      <p>{post}</p>
-    </div>
+<section>
 
-  ))}
+<h2>
+
+Upcoming Articles
+
+</h2>
+
+<div class="projects-grid">
+
+<article class="card">
+
+<h3>
+
+Designing an AI API Gateway
+
+</h3>
+
+<p>
+
+Provider abstraction, authentication, routing strategies,
+logging and scalability.
+
+</p>
+
+</article>
+
+<article class="card">
+
+<h3>
+
+Authentication for Enterprise APIs
+
+</h3>
+
+<p>
+
+JWT, OAuth2, refresh tokens and production security practices.
+
+</p>
+
+</article>
+
+<article class="card">
+
+<h3>
+
+Dockerizing AI Services
+
+</h3>
+
+<p>
+
+Building reproducible development and deployment environments.
+
+</p>
+
+</article>
+
+<article class="card">
+
+<h3>
+
+Production FastAPI Architecture
+
+</h3>
+
+<p>
+
+Structuring enterprise-grade Python services using Clean Architecture.
+
+</p>
+
+</article>
+
+<article class="card">
+
+<h3>
+
+Building RAG Systems
+
+</h3>
+
+<p>
+
+Vector databases, embeddings and retrieval pipelines.
+
+</p>
+
+</article>
+
+<article class="card">
+
+<h3>
+
+Scaling AI Platforms
+
+</h3>
+
+<p>
+
+Cloud-native infrastructure, Kubernetes and platform engineering.
+
+</p>
+
+</article>
 
 </div>
+
+</section>
+
+<section>
+
+<div class="card">
+
+<h2>
+
+Publication Status
+
+</h2>
+
+<p>
+
+Articles will be published progressively as products move through
+their engineering lifecycle and reach production-quality maturity.
+
+</p>
+
+</div>
+
+</section>
 
 </MainLayout>

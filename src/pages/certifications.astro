@@ -1,97 +1,135 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { certifications } from "../data/certifications";
 
-const certifications = [
-  {
-    category: "Programming",
-    items: [
-      "Python Programming Technician — Universidad San Jorge",
-      "Software Analysis and Development Technologist — SENA"
-    ]
-  },
-  {
-    category: "Cloud & DevOps",
-    items: [
-      "AWS Certified Cloud Practitioner (Planned)",
-      "AWS Solutions Architect Associate (Planned)",
-      "AWS Developer Associate (Planned)",
-      "Terraform Associate (Planned)",
-      "Certified Kubernetes Administrator (CKA) (Planned)",
-      "Docker Certified Associate (Planned)"
-    ]
-  },
-  {
-    category: "AI Platform Engineering",
-    items: [
-      "LangChain for LLM Application Development",
-      "LlamaIndex Certification",
-      "Hugging Face AI Courses",
-      "OpenAI API Developer",
-      "Vector Databases Fundamentals",
-      "Redis for AI Applications"
-    ]
-  },
-  {
-    category: "Observability & Platform",
-    items: [
-      "Prometheus Fundamentals",
-      "Grafana Fundamentals",
-      "OpenTelemetry Fundamentals",
-      "GitHub Actions CI/CD",
-      "Linux System Administration"
-    ]
-  }
-];
+const grouped = certifications.reduce((acc, cert) => {
+  if (!acc[cert.category]) acc[cert.category] = [];
+  acc[cert.category].push(cert);
+  return acc;
+}, {} as Record<string, typeof certifications>);
+
+const categories = Object.keys(grouped).sort();
+
+const completed = certifications.filter(
+  c => c.status === "Completed"
+).length;
+
+const planned = certifications.filter(
+  c => c.status === "Planned"
+).length;
+
+const inProgress = certifications.filter(
+  c => c.status === "In Progress"
+).length;
 ---
 
 <MainLayout
   title="Certifications | Héctor Andrés Quintero Silva"
+  description="Professional certifications and learning roadmap."
 >
 
-<h1>Certifications</h1>
+<section class="hero">
 
-<p class="about-lead">
-This page tracks the certifications supporting my roadmap toward becoming an
-AI Platform Engineer focused on cloud-native AI infrastructure, backend
-engineering and production AI systems.
-</p>
+  <p class="eyebrow">
+    Professional Development
+  </p>
 
-{
-certifications.map((section) => (
+  <h1>
+    Certifications
+  </h1>
+
+  <p class="description">
+    Continuous learning is a fundamental part of my engineering journey.
+    These certifications validate the knowledge acquired while building
+    real-world projects and enterprise AI platforms.
+  </p>
+
+</section>
 
 <section>
 
-<h2>{section.category}</h2>
+  <div class="stats-grid">
 
-<div class="cert-grid">
+    <div class="stat-card">
+
+      <h3>{certifications.length}</h3>
+
+      <p>Total Certifications</p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h3>{completed}</h3>
+
+      <p>Completed</p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h3>{inProgress}</h3>
+
+      <p>In Progress</p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h3>{planned}</h3>
+
+      <p>Planned</p>
+
+    </div>
+
+  </div>
+
+</section>
 
 {
-section.items.map((cert) => (
+categories.map((category) => (
+
+<section>
+
+<h2>{category}</h2>
+
+<div class="projects-grid">
+
+{
+
+grouped[category].map((cert) => (
 
 <div class="card">
-<p>{cert}</p>
-</div>
 
-))
-}
+<h3>
 
-</div>
+{cert.title}
 
-</section>
+</h3>
 
-))
-}
+<p class="project-status">
 
-<section>
+{cert.status}
 
-<h2>Certification Roadmap</h2>
-
-<p>
-My objective is to progressively validate the skills acquired throughout the
-30-project roadmap with industry-recognized certifications in cloud,
-Kubernetes, DevOps and AI Platform Engineering.
 </p>
 
+<p>
+
+<strong>Issuer:</strong> {cert.issuer}
+
+</p>
+
+</div>
+
+))
+
+}
+
+</div>
+
 </section>
+
+))
+}
 
 </MainLayout>

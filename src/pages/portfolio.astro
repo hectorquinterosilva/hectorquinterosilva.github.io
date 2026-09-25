@@ -1,0 +1,361 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { roadmapProducts } from "../data/roadmap";
+
+const portfolioProducts = roadmapProducts.filter(
+  (product) => product.status !== "Planned"
+);
+
+const completed = portfolioProducts.filter(
+  (product) => product.status === "Completed"
+).length;
+
+const inProgress = portfolioProducts.filter(
+  (product) => product.status === "In Progress"
+).length;
+
+const planned = roadmapProducts.filter(
+  (product) => product.status === "Planned"
+).length;
+---
+
+<MainLayout
+  title="Portfolio | Héctor Andrés Quintero Silva"
+  description="Explore the AI Platform Engineering portfolio of Héctor Andrés Quintero Silva, including production-oriented software products, backend systems, cloud infrastructure and enterprise AI engineering projects."
+>
+
+  <div class="page-content">
+
+    <!-- ======================================================
+         PORTFOLIO INTRODUCTION
+    ======================================================= -->
+
+    <section>
+
+      <div class="section-header">
+
+        <span class="eyebrow">
+          ENTERPRISE ENGINEERING
+        </span>
+
+        <h1>
+          Portfolio
+        </h1>
+
+        <p class="description">
+          This portfolio contains production-oriented software
+          products developed throughout my long-term AI Platform
+          Engineering roadmap.
+          Every published product represents a real engineering
+          milestone.
+        </p>
+
+      </div>
+
+
+      <!-- ====================================================
+           PORTFOLIO METRICS
+      ===================================================== -->
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+
+          <h3>
+            {completed}
+          </h3>
+
+          <p>
+            Completed Products
+          </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <h3>
+            {inProgress}
+          </h3>
+
+          <p>
+            Currently Building
+          </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <h3>
+            {planned}
+          </h3>
+
+          <p>
+            Planned Products
+          </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <h3>
+            ∞
+          </h3>
+
+          <p>
+            Continuous Improvement
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         PUBLISHED PRODUCTS
+    ======================================================= -->
+
+    <section>
+
+      <div class="section-header">
+
+        <span class="eyebrow">
+          PUBLISHED PRODUCTS
+        </span>
+
+        <h2>
+          Built Through the Roadmap
+        </h2>
+
+        <p>
+          Production-oriented software products developed as
+          part of the engineering roadmap.
+        </p>
+
+      </div>
+
+
+      {
+        portfolioProducts.length === 0 ? (
+
+          <div class="card">
+
+            <h3>
+              Portfolio Under Construction
+            </h3>
+
+            <p>
+              Products automatically appear here as they reach
+              the <strong>In Progress</strong> or
+              <strong>Completed</strong> stage.
+            </p>
+
+          </div>
+
+        ) : (
+
+          <div class="projects-grid">
+
+            {
+              portfolioProducts.map((product) => (
+
+                <article class="card">
+
+                  <span class="project-status">
+                    {product.status}
+                  </span>
+
+
+                  <h3>
+                    {product.title}
+                  </h3>
+
+
+                  <p>
+                    {product.summary}
+                  </p>
+
+
+                  <hr />
+
+
+                  <h4>
+                    Architecture
+                  </h4>
+
+
+                  <p>
+                    {product.architecture}
+                  </p>
+
+
+                  <div class="tech-stack">
+
+                    {
+                      product.technologies.map((tech) => (
+
+                        <span class="tech-pill">
+                          {tech}
+                        </span>
+
+                      ))
+                    }
+
+                  </div>
+
+
+                  {
+                    product.github && (
+
+                      <div class="hero-buttons">
+
+                        <a
+                          class="secondary-button"
+                          href={product.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View Repository
+                        </a>
+
+                      </div>
+
+                    )
+                  }
+
+                </article>
+
+              ))
+            }
+
+          </div>
+
+        )
+      }
+
+    </section>
+
+
+    <!-- ======================================================
+         ENGINEERING APPROACH
+    ======================================================= -->
+
+    <section>
+
+      <div class="section-header">
+
+        <span class="eyebrow">
+          ENGINEERING APPROACH
+        </span>
+
+        <h2>
+          Why Products Instead of Tutorials?
+        </h2>
+
+        <p class="description">
+          Rather than building isolated exercises, my roadmap
+          focuses on developing reusable enterprise products
+          that solve realistic engineering problems.
+        </p>
+
+      </div>
+
+
+      <div class="about-grid">
+
+        <article class="card">
+
+          <h3>
+            Real Engineering Problems
+          </h3>
+
+          <p>
+            Each product is designed around a realistic
+            engineering requirement rather than an isolated
+            programming exercise.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <h3>
+            Reusable Infrastructure
+          </h3>
+
+          <p>
+            Completed products are designed to provide
+            components, services and infrastructure that can
+            be reused by subsequent products.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <h3>
+            Progressive Complexity
+          </h3>
+
+          <p>
+            Each stage of the roadmap introduces new
+            architectural, infrastructure and AI engineering
+            challenges.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         ENGINEERING ECOSYSTEM
+    ======================================================= -->
+
+    <section>
+
+      <div class="card">
+
+        <span class="eyebrow">
+          ENGINEERING ECOSYSTEM
+        </span>
+
+        <h2>
+          More Than a Portfolio
+        </h2>
+
+        <p class="description">
+          The objective is not simply to accumulate projects.
+          The long-term goal is to build an interconnected
+          ecosystem in which every product contributes reusable
+          engineering knowledge, infrastructure and architectural
+          patterns to the products that follow.
+        </p>
+
+
+        <div class="hero-buttons">
+
+          <a
+            class="primary-button"
+            href="/roadmap"
+          >
+            Explore the Roadmap
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</MainLayout>

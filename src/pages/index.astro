@@ -2,159 +2,448 @@
 import MainLayout from "../layouts/MainLayout.astro";
 
 import { profile } from "../data/profile";
-import { techStack } from "../data/stack";
-import { projects } from "../data/projects";
+import { roadmapProducts } from "../data/roadmap";
+
+const featuredProducts = roadmapProducts
+  .filter((product) => product.featured)
+  .slice(0, 3);
 ---
 
 <MainLayout
   title={`${profile.name} | ${profile.title}`}
-  description={`Portfolio of ${profile.name}, ${profile.title}.`}
+  description={profile.summary}
 >
 
-<section class="hero">
+  <!-- =========================================================
+       HERO
+  ========================================================== -->
 
-  <p class="eyebrow">
-    {profile.title}
-  </p>
+  <section class="hero">
 
-  <h1>
-    {profile.name}
-  </h1>
+    <span class="eyebrow">
+      AI PLATFORM ENGINEERING
+    </span>
 
-  <h2>
-    {profile.subtitle}
-  </h2>
+    <h1>
+      Héctor Andrés
+      <br />
+      Quintero Silva
+    </h1>
 
-  <p class="description">
-    {profile.summary}
-  </p>
+    <h2>
+      Building enterprise-grade AI infrastructure.
+    </h2>
 
-  <div class="hero-buttons">
+    <p class="description">
+      AI Platform Engineer specialized in designing production-ready
+      backend systems, cloud-native infrastructure and enterprise AI
+      platforms.
+    </p>
 
-    <a href="/projects" class="primary-button">
-      View Projects
-    </a>
+    <div class="hero-buttons">
 
-    <a href="/contact" class="secondary-button">
-      Contact
-    </a>
+      <a
+        class="primary-button"
+        href="/portfolio"
+      >
+        Explore Products
+      </a>
 
-  </div>
-
-</section>
-
-<section>
-
-  <h2>Core Expertise</h2>
-
-  <div class="specializations-grid">
-
-    <div class="card">
-
-      <h3>Backend Engineering</h3>
-
-      <p>
-        REST APIs, authentication, caching, databases, asynchronous processing
-        and scalable backend services using FastAPI and PostgreSQL.
-      </p>
+      <a
+        class="secondary-button"
+        href="/roadmap"
+      >
+        Engineering Roadmap
+      </a>
 
     </div>
 
-    <div class="card">
+  </section>
 
-      <h3>AI Platform Engineering</h3>
 
-      <p>
-        LLM Gateway APIs, Prompt Management, RAG pipelines, embeddings,
-        semantic search, model orchestration and enterprise AI platforms.
-      </p>
+  <!-- =========================================================
+       CURRENT FOCUS
+  ========================================================== -->
 
-    </div>
+  <section>
 
-    <div class="card">
+    <div class="section-header">
 
-      <h3>Cloud-Native AI Systems</h3>
-
-      <p>
-        Docker, Kubernetes, Redis, cloud deployment, observability, CI/CD,
-        distributed services and production AI infrastructure.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section>
-
-  <h2>Technology Stack</h2>
-
-  <div class="tech-stack">
-
-    {techStack.map((tech) => (
-      <span class="tech-pill">
-        {tech.name}
+      <span class="eyebrow">
+        CURRENT FOCUS
       </span>
-    ))}
 
-  </div>
+      <h2>
+        Engineering in Progress
+      </h2>
 
-</section>
+      <p>
+        The current stage of the engineering roadmap and the
+        technologies being prioritized.
+      </p>
 
-<section>
+    </div>
 
-  <h2>Featured Projects</h2>
 
-  <div class="projects-grid">
+    <div class="stats-grid">
 
-    {projects
-      .filter((project) => project.featured)
-      .map((project) => (
+      <article class="stat-card">
 
-      <div class="card">
-
-        <h3>{project.title}</h3>
-
-        <p class="project-status">
-          {project.status}
-        </p>
+        <h3>
+          AI Platform Engineering
+        </h3>
 
         <p>
-          {project.description}
+          Primary specialization
         </p>
+
+      </article>
+
+
+      <article class="stat-card">
+
+        <h3>
+          Python
+        </h3>
+
+        <p>
+          Primary language
+        </p>
+
+      </article>
+
+
+      <article class="stat-card">
+
+        <h3>
+          AI API Gateway
+        </h3>
+
+        <p>
+          Currently building
+        </p>
+
+      </article>
+
+
+      <article class="stat-card">
+
+        <h3>
+          Enterprise Portfolio
+        </h3>
+
+        <p>
+          Under active development
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       ENGINEERING STACK
+  ========================================================== -->
+
+  <section>
+
+    <div class="section-header">
+
+      <span class="eyebrow">
+        ENGINEERING STACK
+      </span>
+
+      <h2>
+        Technologies
+      </h2>
+
+      <p>
+        Core technologies currently used across the AI Platform
+        Engineering roadmap.
+      </p>
+
+    </div>
+
+
+    <div class="specializations-grid">
+
+      <article class="card">
+
+        <h3>
+          Backend Engineering
+        </h3>
+
+        <div class="tech-stack">
+
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">FastAPI</span>
+          <span class="tech-pill">PostgreSQL</span>
+          <span class="tech-pill">Redis</span>
+          <span class="tech-pill">SQLAlchemy</span>
+          <span class="tech-pill">Alembic</span>
+
+        </div>
+
+      </article>
+
+
+      <article class="card">
+
+        <h3>
+          Cloud Infrastructure
+        </h3>
+
+        <div class="tech-stack">
+
+          <span class="tech-pill">Docker</span>
+          <span class="tech-pill">Docker Compose</span>
+          <span class="tech-pill">Kubernetes</span>
+          <span class="tech-pill">AWS</span>
+          <span class="tech-pill">Linux</span>
+
+        </div>
+
+      </article>
+
+
+      <article class="card">
+
+        <h3>
+          Artificial Intelligence
+        </h3>
+
+        <div class="tech-stack">
+
+          <span class="tech-pill">LLMs</span>
+          <span class="tech-pill">OpenAI</span>
+          <span class="tech-pill">Anthropic</span>
+          <span class="tech-pill">LangChain</span>
+          <span class="tech-pill">RAG</span>
+          <span class="tech-pill">Embeddings</span>
+
+        </div>
+
+      </article>
+
+
+      <article class="card">
+
+        <h3>
+          Engineering Practices
+        </h3>
+
+        <div class="tech-stack">
+
+          <span class="tech-pill">Git</span>
+          <span class="tech-pill">GitHub</span>
+          <span class="tech-pill">REST APIs</span>
+          <span class="tech-pill">Clean Architecture</span>
+          <span class="tech-pill">CI/CD</span>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       FEATURED PRODUCTS
+  ========================================================== -->
+
+  <section>
+
+    <div class="section-header">
+
+      <span class="eyebrow">
+        FEATURED PRODUCTS
+      </span>
+
+      <h2>
+        Built Through the Roadmap
+      </h2>
+
+      <p>
+        Production-oriented software products developed as part
+        of the engineering roadmap.
+      </p>
+
+    </div>
+
+
+    {
+      featuredProducts.length === 0
+        ? (
+          <div class="card">
+
+            <h3>
+              No products published yet
+            </h3>
+
+            <p>
+              Enterprise products will appear here as they
+              progress through the engineering roadmap.
+            </p>
+
+          </div>
+        )
+        : (
+          <div class="projects-grid">
+
+            {
+              featuredProducts.map((product) => (
+
+                <article class="card">
+
+                  <span class="project-status">
+                    {product.status}
+                  </span>
+
+                  <h3>
+                    {product.title}
+                  </h3>
+
+                  <p>
+                    {product.summary}
+                  </p>
+
+                  <div class="tech-stack">
+
+                    {
+                      product.technologies.map((tech) => (
+                        <span class="tech-pill">
+                          {tech}
+                        </span>
+                      ))
+                    }
+
+                  </div>
+
+                </article>
+
+              ))
+            }
+
+          </div>
+        )
+    }
+
+  </section>
+
+
+  <!-- =========================================================
+       ENGINEERING PHILOSOPHY
+  ========================================================== -->
+
+  <section>
+
+    <div class="section-header">
+
+      <span class="eyebrow">
+        ENGINEERING PHILOSOPHY
+      </span>
+
+      <h2>
+        Built, not just studied.
+      </h2>
+
+      <p>
+        The roadmap is structured around the construction of
+        increasingly complex systems.
+      </p>
+
+    </div>
+
+
+    <div class="specializations-grid">
+
+      <article class="card">
+
+        <h3>
+          Learn by Building
+        </h3>
+
+        <p>
+          Engineering concepts are reinforced through real
+          implementations rather than isolated exercises.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <h3>
+          Enterprise Mindset
+        </h3>
+
+        <p>
+          Architecture, scalability, maintainability and
+          production practices are considered from the beginning.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <h3>
+          Reusable Ecosystem
+        </h3>
+
+        <p>
+          Each product contributes components, knowledge and
+          infrastructure that can be reused by subsequent systems.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       ENGINEERING VISION
+  ========================================================== -->
+
+  <section>
+
+    <div class="card">
+
+      <span class="eyebrow">
+        ENGINEERING VISION
+      </span>
+
+      <h2>
+        An interconnected engineering ecosystem.
+      </h2>
+
+      <p class="description">
+        The long-term roadmap connects Backend Engineering,
+        Data Engineering, Machine Learning, Deep Learning,
+        AI Platform Engineering, Cloud Computing and
+        Distributed Systems through a growing portfolio
+        of interconnected products.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          class="primary-button"
+          href="/roadmap"
+        >
+          Explore the Roadmap
+        </a>
 
       </div>
 
-    ))}
-
-  </div>
-
-</section>
-
-<section>
-
-  <h2>Engineering Roadmap</h2>
-
-  <div class="stats-grid">
-
-    <div class="stat-card">
-      <h3>30</h3>
-      <p>Production Projects</p>
     </div>
 
-    <div class="stat-card">
-      <h3>7</h3>
-      <p>Engineering Levels</p>
-    </div>
-
-    <div class="stat-card">
-      <h3>AI</h3>
-      <p>Platform Engineering Focus</p>
-    </div>
-
-  </div>
-
-</section>
+  </section>
 
 </MainLayout>
